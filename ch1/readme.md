@@ -40,3 +40,21 @@ var obj1 = {
 };
 obj1.a = 2;
 ```
+### 1-6
+
+```js
+var obj = {
+  x: 3,
+  arr: [3, 4, 5],
+};
+```
+
+### 1-7
+
+```js
+var a = 10;
+var b = a;
+
+var obj1 = { c: 10, d: 'ddd' };
+var obj2 = obj1;
+```
