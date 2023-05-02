@@ -275,3 +275,108 @@ obj.b.d[1] = 3;
 console.log(obj); // { a: 1. b: { c: null, d: [1, 3] } }
 console.log(obj2); // { a: 3. b: { c: 4, d: { 0: 1, 1: 2 } } }
 ```
+```js
+var copyObjectViaJSON = function(target) {
+  return JSON.parse(JSON.stringify(target));
+};
+var obj = {
+  a: 1,
+  b: {
+    c: null,
+    d: [1, 2],
+    func1: function() {
+      console.log(3);
+    },
+  },
+  func2: function() {
+    console.log(4);
+  },
+};
+var obj2 = copyObjectViaJSON(obj);
+
+obj2.a = 3;
+obj2.b.c = 4;
+obj.b.d[1] = 3;
+
+console.log(obj); // { a: 1. b: { c: null, d: [1, 3], func1: f() }, func2: f() }
+console.log(obj2); // { a: 3. b: { c: 4,    d: [1, 2] } }
+```
+
+### 1-19
+
+```js
+var a;
+console.log(a); // (1) undefined. 값을 대입하지 않은 변수에 접근
+
+var obj = { a: 1 };
+console.log(obj.a); // 1
+console.log(obj.b); // (2) 존재하지 않는 프로퍼티에 접근
+console.log(b); // c.f) ReferenceError: b is not defined
+
+var func = function() {};
+var c = func(); // (3) 반환(return)값이 없으면 undefined를 반환한 것으로 간주.
+console.log(c); // undefined
+```
+
+### 1-20
+
+```js
+var arr1 = [];
+arr1.length = 3;
+console.log(arr1); // [empty x 3]
+
+var arr2 = new Array(3);
+console.log(arr2); // [empty x 3]
+
+var arr3 = [undefined, undefined, undefined];
+console.log(arr3); // [undefined, undefined, undefined]
+```
+
+### 1-21
+
+```js
+var arr1 = [undefined, 1];
+var arr2 = [];
+arr2[1] = 1;
+
+arr1.forEach(function(v, i) {
+  console.log(v, i);
+}); // undefined 0 / 1 1
+arr2.forEach(function(v, i) {
+  console.log(v, i);
+}); // 1 1
+
+arr1.map(function(v, i) {
+  return v + i;
+}); // [NaN, 2]
+arr2.map(function(v, i) {
+  return v + i;
+}); // [empty, 2]
+
+arr1.filter(function(v) {
+  return !v;
+}); // [undefined]
+arr2.filter(function(v) {
+  return !v;
+}); // []
+
+arr1.reduce(function(p, c, i) {
+  return p + c + i;
+}, ''); // undefined011
+arr2.reduce(function(p, c, i) {
+  return p + c + i;
+}, ''); // 11
+```
+
+### 1-22
+
+```js
+var n = null;
+console.log(typeof n); // object
+
+console.log(n == undefined); // true
+console.log(n == null); // true
+
+console.log(n === undefined); // false
+console.log(n === null); // true
+```
