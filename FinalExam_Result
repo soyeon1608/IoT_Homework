@@ -1,0 +1,11 @@
+Start // 1. "Start" 출력
+First next-tick callback executed // 2. 첫 번째 next-tick 콜백 실행 ("First next-tick callback executed" 출력)
+First promise was resolved // 3. 첫 번째 프로미스 콜백 실행 ("First promise was resolved" 출력)
+End // 4. "End" 출력
+File read // 5. 파일 읽기 완료 ("File read" 출력)
+Second promise was resolved // 6. 두 번째 프로미스 콜백 실행 ("Second promise was resolved" 출력)
+Second next-tick callback executed // 7. 두 번째 next-tick 콜백 실행 ("Second next-tick callback executed" 출력)
+Third promise was resolved // 8. 세 번째 프로미스 콜백 실행 ("Third promise was resolved" 출력)
+Third next-tick callback executed // 9. 세 번째 next-tick 콜백 실행 ("Third next-tick callback executed" 출력)
+Timeout callback executed // 10. 타임아웃 콜백 실행 ("Timeout callback executed" 출력)
+Immediate callback executed // 11. 즉시 실행되는 콜백 실행 ("Immediate callback executed" 출력)
